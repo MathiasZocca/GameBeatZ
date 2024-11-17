@@ -25,19 +25,19 @@ body {
     flex-direction: row;
 }
 
-.cadastrarLogin {
+/*.cadastrarLogin {
     width: 54%;
     height: 62%;
     border-radius: 10px;
-    background: rgb(77, 20, 199);
-    background: linear-gradient(177deg, rgba(77, 20, 199, 1) 0%, rgb(55, 91, 211) 44%, rgba(23, 93, 243, 0.884) 98%);
+    background: rgb(85, 30, 71);
+    background: linear-gradient(177deg, rgb(42, 187, 187) 0%, rgb(88, 5, 40) 44%, rgba(53, 209, 38, 0.884) 98%);
     
     display: flex;
     align-items: center;
     flex-direction: column;
     padding-top: 3%;
     justify-content: space-around;
-}
+}*/
 
 .conteudoRight {
     display: flex;
@@ -93,7 +93,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    height: 95%;
+    height: 100%;
     bottom: 0;
     position: relative;
     flex-direction: column;
@@ -126,7 +126,7 @@ body {
 
 .left {
     display: flex;
-    width: 50%;
+    width: 34%;
     height: 100vh;
     background-color: #111111;
 }
@@ -156,8 +156,7 @@ body {
 }
 
 .inputs p {
-    
-    margin-bottom: 12px;
+    margin-bottom: 9px;
 }
 
 .esqueceu_senha {
@@ -177,7 +176,7 @@ body {
 
 .semconta a {
     text-decoration: none;
-    color: #3594BB;
+    color: #1da370;
     margin-left: 2px;
     font-family: 'Inter', sans-serif;
 }
@@ -194,6 +193,10 @@ body {
     border: none;
     transition: transform 0.5s;
     cursor: pointer;
+    
+    border-radius: 10px;
+    background: rgb(1, 31, 36);
+    background: linear-gradient(177deg, rgb(3, 75, 63) 0%, rgb(8, 145, 115) 44%, rgba(189, 245, 233, 0.884) 98%);
 }
 
 /* tirando o spinner da input tipo Number */
