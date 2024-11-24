@@ -1,0 +1,121 @@
+ body {
+    background-color: rgb(0, 0, 0);
+}
+
+.mainAbertura {
+    width: 100%;
+    height: 625px;
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+}
+
+.logoAbertura {
+    background-color: #000000;
+    width: 40%;
+    height: 625px;
+}
+
+.textAbertura {
+    background-color: #000000;
+    width: 60%;
+    height: 625px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+img {
+    width: 619px;
+}
+
+button {
+    color: black;
+   width: 300px;
+   height: 45px;
+} 
+
+h1 {
+    color: rgb(255, 255, 255);
+}
+
+h2 {
+    color: rgb(255, 255, 255);
+}
+
+
+
+.game {
+    background-color: #d9d9d9;
+    border: 4px solid #3e9aff;
+    border-radius: 123px;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #3e9aff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+  /* Efeito de texto com borda animada */
+  .game::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #3e9aff;
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Hover - Efeito de iluminação e animação */
+  .game:hover {
+    color: #fff;
+    background-color: #3e9aff;
+    border-color: #1d1f1d;
+  }
+  
+  .game:hover::before {
+    transform: scaleX(1);
+    transform-origin: top left;
+  }
+  
+  /* Efeito de glow ao clicar (animar o foco) */
+  .game:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 15px #3e9aff, 0 0 30px #3e9aff, 0 0 45px #3e9aff;
+  }
+  
+  /* Adicionar borda ao redor quando em foco */
+  .game:focus {
+    outline: none;
+    border-color: rgb(94, 2, 86);
+    box-shadow: 0 0 5px rgb(94, 2, 86);
+  }
+  
+  /* Adicionar um efeito de brilho ao hover */
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 10px rgba(0, 0, 255, 0.7), 0 0 30px rgba(0, 0, 255, 0.6);
+    }
+    50% {
+      box-shadow: 0 0 25px rgba(0, 0, 255, 1), 0 0 40px rgba(0, 0, 255, 0.7);
+    }
+    100% {
+      box-shadow: 0 0 10px rgba(0, 0, 255, 0.7), 0 0 30px rgba(0, 0, 255, 0.6);
+    }
+  }
+
+  .game:hover {
+    animation: pulse 1.5s infinite;
+  }

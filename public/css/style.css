@@ -1,0 +1,383 @@
+body, html {
+  padding: 0;
+  margin: 0;
+  background-color: black;
+  scroll-behavior: smooth;
+}
+
+
+
+.main{
+   position: relative;
+    z-index: 1;
+  width: 100%;
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  border-radius: 10%;
+}
+
+.sobre{
+  font-size: 20px;
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  margin-left: 5%;
+}
+
+.sobrevideo{
+  width: 50%;
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+
+}
+
+.navbar{
+  width: 95%;
+  height: 100px;
+  position: fixed;
+  top: 20px; /* Adiciona um espaçamento do topo */
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(51, 51, 51, 0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 1000; /*Garante que a navbar fique acima de outros elementos */
+  transition: all 0.3s ease; /* Suaviza alterações de estilo */
+}
+
+.navbar:hover {
+  background-color: rgba(51, 51, 51, 0.5); /* Escurece levemente ao passar o mouse */
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.conteudonavbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  font-family: "Bungee Inline", sans-serif;
+  color: white;
+}
+
+.conteudonavbar a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 15px;
+  font-size: 18px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+ 
+.conteudonavbar a:hover {
+  color: white;
+  transform: scale(1.1); /* Leve efeito de zoom */
+}
+
+.navbar .actions {
+  display: flex;
+  gap: 15px;
+}
+
+.navbar .button {
+  padding: 10px 20px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.navbar .button:hover {
+  background-color: white;
+  color: black;
+  border-color: white;
+}
+
+img{
+  width: 10%;
+  height: 100px;
+}
+
+
+/* jogos  */
+.areajogos {
+  height: 90vh;
+}
+
+.areajogos .container {
+  width: 100%;
+  height: 100%;
+}
+
+.areajogos .areaTitulo {
+  height: 20%;
+  font-family: "Bungee Inline", sans-serif;
+}
+
+.areajogos .areaTitulo .container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.areajogos .areaCards {
+  display: flex;
+  height: 90%;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.158);
+}
+
+.areajogos .areaCards .card {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  border: none;
+  border-radius: 0px;
+  box-shadow: none;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  overflow: hidden; 
+}
+
+.areajogos .areaCards .card:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.areajogos .areaCards .card img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.areajogos .areaCards .card:hover img {
+  filter: grayscale(0%);
+}
+
+.areajogos .areaCards .card .info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: white;
+  text-align: center;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  font-family: "Bungee Inline", sans-serif;
+}
+
+.areajogos .areaCards .card:hover .info {
+  transform: translateY(0);
+}
+
+.titulojogos {
+  font-size: 50px;
+  color: #fff;
+  position: relative;
+}
+
+.titulojogos::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  border-radius: 10px;
+  background: #2720EC;
+  font-family: "Bungee Inline", sans-serif;
+}
+
+ /* FIM jogos */
+
+ /* Pop-up Styles */
+ body:has(.popup:target) {
+  overflow: hidden;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  /* z-index: 1000; */
+}
+
+.popup:target {
+  display: flex;
+}
+
+
+.popup-content {
+  width: 500px;
+  height: 300px;
+  background: rgb(255, 255, 255);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 90%;
+  box-shadow: 0 5px 15px rgba(2, 26, 245, 0.3);
+  /* z-index: 1001;
+}
+
+.popup-content .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  text-decoration: none;
+  font-size: 24px;
+  color: black;
+  background: #f0f0f0;
+  border-radius: 50%;
+  padding: 5px 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+.popup-content .close:hover {
+  background: #ccc;
+}
+
+/* Botão de Fechar */
+.close-button {
+  position: absolute;
+  top: 157px;
+  right: 425px;
+  text-decoration: none;
+  font-size: 24px;
+  color: black;
+  background: #f0f0f0;
+  border-radius: 50%;
+  padding: 5px 10px;
+  box-shadow: 0 2px 5px rgba(28, 5, 235, 0.678);
+  transition: background 0.3s;
+}
+}
+
+.close-button:hover {
+  background: #ccc;
+}
+
+/* Ajuste para Pop-ups */
+.popup-content h2 {
+  margin-bottom: 10px;
+}
+
+.popup-content p {
+  font-size: 16px;
+}
+
+ /* Musicas  */
+.areamusica {
+  height: 90vh;
+  margin-top: 100px;
+}
+
+.areamusica .container {
+  width: 100%;
+  height: 100%;
+}
+
+.areamusica .areaTitulo {
+  height: 20%;
+  font-family: "Bungee Inline", sans-serif;
+}
+
+.areamusica .areaTitulo .container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.areamusica .areaCards {
+  display: flex;
+  height: 90%;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.158);
+}
+
+.areamusica .areaCards .card {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  border: none;
+  border-radius: 0px;
+  box-shadow: none;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  overflow: hidden; 
+}
+
+.areamusica .areaCards .card:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.areamusica .areaCards .card img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.areamusica .areaCards .card:hover img {
+  filter: grayscale(0%);
+}
+
+.areamusica .areaCards .card .info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: white;
+  text-align: center;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  font-family: "Bungee Inline", sans-serif;
+}
+
+.areamusica .areaCards .card:hover .info {
+  transform: translateY(0);
+}
+
+.titulomusicas {
+  font-size: 50px;
+  color: #fff;
+  position: relative;
+}
+
+.titulomusicas::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  border-radius: 10px;
+  background: #2720EC;
+  font-family: "Bungee Inline", sans-serif;
+}
+
+ /* FIM Musicas */
