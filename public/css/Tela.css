@@ -26,7 +26,7 @@ body {
   justify-content: center;
 }
 
-img {
+.logoAbertura img {
   width: 619px;
 }
 
@@ -176,4 +176,60 @@ button:focus {
 /* Adiciona brilho contínuo ao hover */
 button:hover {
   animation: glow 1.5s infinite;
+}
+
+.voltar-home {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+}
+
+.seta-voltar {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transform: rotate(0deg);
+}
+
+/* Desenha a seta com CSS */
+.seta-voltar::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background-color: #333;
+  transform: rotate(-45deg);
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  margin-top: -1px;
+  margin-left: -15px;
+}
+
+.seta-voltar::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background-color: #333;
+  transform: rotate(45deg);
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  margin-top: -1px;
+  margin-left: -15px;
+}
+
+/* Efeito hover */
+.seta-voltar:hover::before,
+.seta-voltar:hover::after {
+  background-color: #555;
 }
