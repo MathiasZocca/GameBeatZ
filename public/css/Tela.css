@@ -121,3 +121,59 @@ h2 {
 .game:hover {
   animation: pulse 1.5s infinite;
 }
+
+/* Estilo básico dos botões */
+button {
+  width: 300px; /* Largura */
+  height: 50px; /* Altura */
+  color: #ffffff; /* Cor do texto */
+  background-color: #3e9aff; /* Fundo padrão */
+  border: 2px solid #3e9aff; /* Borda inicial */
+  border-radius: 8px; /* Bordas arredondadas */
+  font-size: 18px; /* Tamanho do texto */
+  font-family: 'Bungee Inline', sans-serif; /* Tipografia */
+  font-weight: bold; /* Texto em negrito */
+  text-transform: uppercase; /* Texto em maiúsculas */
+  cursor: pointer; /* Cursor de ponteiro */
+  transition: all 0.3s ease; /* Transição suave */
+  outline: none; /* Remove o contorno padrão */
+}
+
+/* Hover - Alteração de cor e brilho */
+button:hover {
+  background-color: #8e1cbbd2; /* Fundo no hover */
+  color: #ffffff; /* Texto sempre branco */
+  border-color: #ffffff; /* Borda branca */
+  box-shadow: 0 0 15px #8e1cbbd2, 0 0 30px #3e9aff; /* Efeito de glow */
+}
+
+/* Ativo - Animação ao clicar */
+button:active {
+  transform: scale(0.95); /* Leve redução */
+  box-shadow: 0 0 20px #3e9aff, 0 0 40px #3e9aff; /* Glow mais forte */
+}
+
+/* Foco - Destaque visual */
+button:focus {
+  outline: none; /* Remove outline padrão */
+  border-color: #ff00ff; /* Borda diferenciada */
+  box-shadow: 0 0 5px #ff00ff, 0 0 10px #3e9aff; /* Glow ao focar */
+}
+
+/* Animação de brilho constante */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px rgba(62, 154, 255, 0.8), 0 0 20px rgba(62, 154, 255, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(62, 154, 255, 1), 0 0 40px rgba(62, 154, 255, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(62, 154, 255, 0.8), 0 0 20px rgba(62, 154, 255, 0.6);
+  }
+}
+
+/* Adiciona brilho contínuo ao hover */
+button:hover {
+  animation: glow 1.5s infinite;
+}

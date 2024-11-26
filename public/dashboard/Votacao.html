@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="imgs/GAMEBEATSAWARDS.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="./assets/logo-navegador.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="Votacao.css" />
+    <title>GameBeatZ Awards</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body onload="obterDadosGrafico()">
+    <div class="painel">
+      <header>
+        <img src="imgs/GAMEBEATSAWARDS.png" alt="logo_game_awards" width="200px" />
+        <div>
+          <h1 class="titulos-italicos">Live</h1>
+          <h1>12.10</h1>
+        </div>
+      </header>
+      <div class="titulos">
+        <p class="titulos-italicos">CATEGORY</p>
+        <h1>GAME OF THE YEAR</h1>
+      </div>
+      <div class="jogos-concorrentes">
+        <div class="jogo" onclick="votar('Animal Crossing')">
+          <img
+            src="assets/animal-crossing.png"
+            alt=""
+            width="200px"
+            height="300px"
+          />
+          <p>ANIMAL CROSSING: NEW HORIZONS</p>
+        </div>
+        <div class="jogo" onclick="votar('Doom Eternal')">
+          <img src="assets/doom.jpeg" alt="" width="200px" height="300px" />
+          <p>DOOM ETERNAL</p>
+        </div>
+        <div class="jogo" onclick="votar('Final Fantasy VII Remake')">
+          <img
+            src="assets/final-fantasy.jpg"
+            alt=""
+            width="200px"
+            height="300px"
+          />
+          <p>FINAL FANTASY VII REMAKE</p>
+        </div>
+        <div class="jogo" onclick="votar('Ghost Of Tsushima')">
+          <img
+            src="assets/ghost-of-tsushima.png"
+            alt=""
+            width="200px"
+            height="300px"
+          />
+          <p>GHOST OF TSUSHIMA</p>
+        </div>
+        <div class="jogo" onclick="votar('Hades')">
+          <img src="assets/hades.png" width="200px" height="300px" />
+          <p>HADES</p>
+        </div>
+        <div class="jogo" onclick="votar('The Last of Us Part II')">
+          <img
+            src="assets/the-last-of-us.png"
+            alt=""
+            width="200px"
+            height="300px"
+          />
+          <p>The Last of Us Part II</p>
+        </div>
+      </div>
+      <div class="grafico">
+        <canvas id="myCanvas"></canvas>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  let myChart;
+
+  function votar(nomeJogo) {
+    fetch(`/votos/votar/${nomeJogo}`, {
+      method: "POST",
+    })
+      .then((response) => {
+        if (response.ok) {
+          console.log(`Voto contabilizado`);
+          atualizarGrafico();
+        } else {
+          console.error("Erro na votação ou jogo não encontrado");
+        }
+      })
+      .catch(function (error) {
+        console.error(`Erro ao realizar o voto: ${error.message}`);
+      });
+  }
+
+  function obterDadosGrafico() {
+    fetch(`/votos/ultimos`, { cache: "no-store" })
+      .then(function (response) {
+        if (response.ok) {
+          response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+            plotarGrafico(resposta);
+          });
+        } else {
+          console.error("Nenhum dado encontrado ou erro na API");
+        }
+      })
+      .catch(function (error) {
+        console.error(
+          `Erro na obtenção dos dados p/ gráfico: ${error.message}`
+        );
+      });
+  }
+
+  function plotarGrafico(resposta) {
+    console.log("iniciando plotagem do gráfico...");
+
+    // Criando estrutura para plotar gráfico - labels
+    let labels = [
+      "Animal Crossing",
+      "Doom Eternal",
+      "Final Fantasy VII Remake",
+      "Ghost of Tsushima",
+      "Hades",
+      "The Last of Us Part II",
+    ];
+
+    // Criando estrutura para plotar gráfico - dados
+    let dados = {
+      labels: labels,
+      datasets: [
+        {
+          label: "Votos",
+          data: [],
+          fill: false,
+          backgroundColor: [
+            "rgba(75, 192, 192, 0.2)",
+            "rgba(255, 99, 132, 0.2)",
+            "rgba(54, 162, 235, 0.2)",
+          ],
+          borderColor: [
+            "rgba(75, 192, 192, 1)",
+            "rgba(255, 99, 132, 1)",
+            "rgba(54, 162, 235, 1)",
+          ],
+          borderWidth: 1,
+          tension: 0.1,
+        },
+      ],
+    };
+
+    console.log("----------------------------------------------");
+    console.log(
+      'Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":'
+    );
+    console.log(resposta);
+
+    // Inserindo valores recebidos em estrutura para plotar o gráfico
+
+    for (i = 0; i < resposta.length; i++) {
+      var registro = resposta[i];
+      dados.datasets[0].data.push(registro.quantidade);
+    }
+
+    console.log("----------------------------------------------");
+    console.log("O gráfico será plotado com os respectivos valores:");
+    console.log("Labels:");
+    console.log(labels);
+    console.log("Dados:");
+    console.log(dados.datasets);
+    console.log("----------------------------------------------");
+
+    // Criando estrutura para plotar gráfico - config
+    const config = {
+      type: "bar",
+      data: dados,
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+        plugins: {
+          title: {
+            display: true,
+            text: "VOTAÇÃO",
+            color: "#FFFFFF",
+            font: {
+              size: 20,
+            },
+          },
+          legend: {
+            display: true,
+            labels: {
+              color: "white",
+            },
+          },
+        },
+      },
+    };
+
+    // Adicionando gráfico criado em div na tela
+    myChart = new Chart(document.getElementById("myCanvas"), config);
+  }
+
+  function atualizarGrafico() {
+    fetch(`/votos/ultimos`, { cache: "no-store" })
+      .then(function (resposta) {
+        if (resposta.ok) {
+          resposta.json().then(function (respostaJSON) {
+            console.log(`Dados recebidos: ${JSON.stringify(respostaJSON)}`);
+            console.log(`Dados atuais do gráfico:`);
+            console.log(myChart.data);
+
+            myChart.data.datasets[0].data = [];
+
+            for (let i = 0; i < respostaJSON.length; i++) {
+              myChart.data.datasets[0].data.push(respostaJSON[i].quantidade);
+            }
+          
+            myChart.update();
+          });
+        } else {
+          console.error("Nenhum dado encontrado ou erro na API");
+        }
+      })
+      .catch(function (error) {
+        console.error(
+          `Erro na obtenção dos dados p/ gráfico: ${error.message}`
+        );
+      });
+  }
+</script>

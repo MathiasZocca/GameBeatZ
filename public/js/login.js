@@ -1,23 +1,23 @@
-document.querySelector('#registerForm').addEventListener('submit', function (e) {
-    e.preventDefault();
+// document.querySelector('#registerForm').addEventListener('submit', function (e) {
+//     e.preventDefault();
 
-    var email = document.querySelector('#email').value;
-    var password = document.querySelector('#password').value;
-    var confirmPassword = document.querySelector('#confirmPassword').value;
+//     var email = document.querySelector('#email').value;
+//     var password = document.querySelector('#password').value;
+//     var confirmPassword = document.querySelector('#confirmPassword').value;
 
     // Validação básica de senha
-    if (password !== confirmPassword) {
-         alert('As senhas não correspondem!');
-       return;
-     }
+//     if (password !== confirmPassword) {
+//          alert('As senhas não correspondem!');
+//        return;
+//      }
 
 
 
     
 
-    // Redirecionar para a página de login
-    window.location.href = './site-institucional/index.html';
-});
+//     // Redirecionar para a página de login
+//     window.location.href = './site-institucional/index.html';
+// });
 
 function entrar() {
 
@@ -58,7 +58,7 @@ function entrar() {
                 alert('login realizado com sucesso!');
 
                 setTimeout(function () {
-                    window.location = "./dashboard/Tela.html";
+                    window.location = "./dashboard/Votacao.html";
                 }, 1000); // apenas para exibir o loading
 
             });

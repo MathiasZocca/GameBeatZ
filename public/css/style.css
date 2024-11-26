@@ -1,3 +1,21 @@
+@font-face {
+  font-family: mg;
+  src: url("../fontes/The\ Midnight\ \(Slant\)\ DEMO.otf");
+}
+
+::-webkit-scrollbar {
+  width: 13px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(49, 47, 47);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.411);
+}
+
+
 body, html {
   padding: 0;
   margin: 0;
@@ -5,6 +23,55 @@ body, html {
   scroll-behavior: smooth;
 }
 
+
+.guardavideo {
+  position: relative;
+  width: 100%; /* Ajuste conforme necessário */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Garante que o vídeo não ultrapasse os limites da div */
+  /* border-radius: 50px; */
+}
+
+.videoBackground { 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  opacity: 50%;
+  /* border-radius: 50px; */
+}
+
+.logoOverlay {
+  position: relative;
+  z-index: 2; /* Garante que a logo fique acima do vídeo */
+  display: block;
+  margin: auto; /* Centraliza a imagem dentro da div */
+  width: 100%; /* Ajuste conforme necessário */
+  height: 35%; /* Mantém a proporção */
+  /* border-radius: 50px; */
+}
+
+.conteudoRight {
+position: absolute;
+top: 50%; /* Ajuste conforme necessário */
+left: 50%;
+transform: translate(-50%, -50%);
+z-index: 3; /* Texto acima do vídeo e da logo */
+color: white; /* Texto em branco para contraste */
+font-family: "Bungee Inline", sans-serif;
+font-size: 20px;
+text-align: center; /* Centraliza o texto */
+width: 60%; /* Ajuste conforme necessário */
+padding: 10px; /* Espaçamento interno */
+/* background: rgba(141, 151, 240, 0.5); Fundo semitransparente para legibilidade */
+border-radius: 50px; /* Bordas arredondadas */
+
+}
 
 
 .main{
@@ -19,6 +86,7 @@ body, html {
 }
 
 .sobre{
+  position: relative;
   font-size: 20px;
   width: 50%;
   height: 100vh;
@@ -27,16 +95,11 @@ body, html {
   align-items: center;
   flex-direction: column;
   color: white;
-  margin-left: 5%;
+  /* margin-left: 5%; */
+  font-family: "Bungee Inline", sans-serif;
+z-index: 10;
 }
 
-.sobrevideo{
-  width: 50%;
-  margin-top: 5%;
-  display: flex;
-  justify-content: center;
-
-}
 
 .navbar{
   width: 95%;
@@ -229,15 +292,13 @@ img{
 
 
 .popup-content {
-  width: 500px;
-  height: 300px;
-  background: rgb(255, 255, 255);
-  padding: 20px;
+  background: linear-gradient(243deg, #0557ff, #000000);
+  width: 650px;
+  height: 350px;
   border-radius: 10px;
   text-align: center;
   max-width: 90%;
-  box-shadow: 0 5px 15px rgba(2, 26, 245, 0.3);
-  /* z-index: 1001;
+  box-shadow: 0 5px 15px rgb(211 212 225 / 61%);
 }
 
 .popup-content .close {
@@ -261,8 +322,8 @@ img{
 /* Botão de Fechar */
 .close-button {
   position: absolute;
-  top: 157px;
-  right: 425px;
+  top: 155px;
+  right: 370px;
   text-decoration: none;
   font-size: 24px;
   color: black;
@@ -272,7 +333,7 @@ img{
   box-shadow: 0 2px 5px rgba(28, 5, 235, 0.678);
   transition: background 0.3s;
 }
-}
+
 
 .close-button:hover {
   background: #ccc;
@@ -280,11 +341,15 @@ img{
 
 /* Ajuste para Pop-ups */
 .popup-content h2 {
-  margin-bottom: 10px;
+  color: white;
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
 
 .popup-content p {
-  font-size: 16px;
+  margin: 15px;
+  color: white;
+  font-size: 15px;
 }
 
  /* Musicas  */
@@ -381,3 +446,53 @@ img{
 }
 
  /* FIM Musicas */
+
+ .odd {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 700px;
+  background-color: #000000;
+ }
+
+ .ods9 {
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 245px;
+  background-color: #ce68095b;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgb(211 212 225 / 61%);
+  font-family: "Bungee Inline", sans-serif;
+ }
+
+ .footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 300px;
+  background-color: #000000;
+ }
+
+ .contato {
+  display: table-footer-group;
+  justify-items: center;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(243deg, #a7a7a7, #000000);
+  border-top-left-radius: 300px;
+  box-shadow: 0px 5px 15px rgba(255, 251, 251, 0.925);
+ } 
+
+ .iconctt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100px;
+  background-color: #ffffff00;
+ }

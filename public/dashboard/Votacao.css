@@ -1,0 +1,83 @@
+@font-face {
+   font-family: mg;
+   src: url("../fontes/The\ Midnight\ (Slant)\ DEMO.otf");
+}
+
+::-webkit-scrollbar {
+   width: 13px;
+}
+
+::-webkit-scrollbar-track {
+   background-color: rgba(29, 29, 71, 0.808);
+}
+
+::-webkit-scrollbar-thumb {
+   background-color: rgba(1, 1, 31, 0.842);
+}
+
+
+* {
+ margin: 0;
+}
+
+.painel {
+   background-image: 
+   linear-gradient(rgba(0, 0, 0, 0.2), rgb(1, 1, 31)),
+   url('imgs/No+Man\'s+Sky.jpeg');
+   background-size: cover;
+   background-position: center;
+   background-attachment: fixed;
+   color: white;
+   display: flex;
+   flex-direction: column;
+   gap: 30px;
+   padding: 15px;
+   font-family: 'Bungee Inline';
+}
+
+header {
+   height: 150px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.titulos-italicos {
+   font-style: monospace;
+   font-size: 15px;
+}
+
+.titulos {
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+   padding: 20px;
+}
+
+.titulos h1 {
+   font-size: 40px;
+}
+
+.jogos-concorrentes {
+   display: flex;
+   justify-content: space-around;
+}
+
+.jogo {
+   cursor: pointer;
+   width: 200px;
+   font-weight: 500;
+   word-wrap: break-word; 
+}
+
+.jogo:hover {
+   transform: scale(1.1);
+   transition: 0.4s;
+}
+
+.grafico {
+   height: 500px;
+   display: flex;
+   justify-content: center;
+   margin-bottom: 30px;
+}
